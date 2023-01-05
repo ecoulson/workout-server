@@ -11,9 +11,8 @@ defmodule WorkoutServer.WorkoutsFixtures do
     {:ok, repitition} =
       attrs
       |> Enum.into(%{
-        machine_id: "7488a646-e31f-11e4-aace-600308960662",
-        repitition_ended_at: ~D[2023-01-02],
-        repitition_started_at: ~D[2023-01-02],
+        repitition_ended_at: ~N[2023-01-02 00:02:00.00],
+        repitition_started_at: ~N[2023-01-02 00:01:00.00],
         weight: "120.5"
       })
       |> WorkoutServer.Workouts.create_repitition()
@@ -29,7 +28,6 @@ defmodule WorkoutServer.WorkoutsFixtures do
       attrs
       |> Enum.into(%{
         brand: "some brand",
-        id: "7488a646-e31f-11e4-aace-600308960662",
         type: "some type"
       })
       |> WorkoutServer.Workouts.create_machine()

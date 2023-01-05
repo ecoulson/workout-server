@@ -13,7 +13,7 @@ defmodule WorkoutServerWeb.RepititionView do
   def render("repitition.json", %{repitition: repitition}) do
     %{
       id: repitition.id,
-      machine_id: repitition.machine_id,
+      machine: repitition.machine,
       weight: repitition.weight,
       repitition_started_at: repitition.repitition_started_at,
       repitition_ended_at: repitition.repitition_ended_at

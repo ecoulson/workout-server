@@ -7,12 +7,10 @@ defmodule WorkoutServerWeb.MachineControllerTest do
 
   @create_attrs %{
     brand: "some brand",
-    id: "7488a646-e31f-11e4-aace-600308960662",
     type: "some type"
   }
   @update_attrs %{
     brand: "some updated brand",
-    id: "7488a646-e31f-11e4-aace-600308960668",
     type: "some updated type"
   }
   @invalid_attrs %{brand: nil, id: nil, type: nil}
@@ -36,9 +34,7 @@ defmodule WorkoutServerWeb.MachineControllerTest do
       conn = get(conn, Routes.machine_path(conn, :show, id))
 
       assert %{
-               "id" => ^id,
                "brand" => "some brand",
-               "id" => "7488a646-e31f-11e4-aace-600308960662",
                "type" => "some type"
              } = json_response(conn, 200)["data"]
     end
@@ -59,9 +55,7 @@ defmodule WorkoutServerWeb.MachineControllerTest do
       conn = get(conn, Routes.machine_path(conn, :show, id))
 
       assert %{
-               "id" => ^id,
                "brand" => "some updated brand",
-               "id" => "7488a646-e31f-11e4-aace-600308960668",
                "type" => "some updated type"
              } = json_response(conn, 200)["data"]
     end

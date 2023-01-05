@@ -3,7 +3,6 @@ defmodule WorkoutServer.Repo.Migrations.CreateMachine do
 
   def change do
     create table(:machine) do
-      add :id, :uuid
       add :type, :string
       add :brand, :string
 

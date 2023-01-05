@@ -3,12 +3,14 @@ defmodule WorkoutServer.Repo.Migrations.CreateRepitition do
 
   def change do
     create table(:repitition) do
-      add :machine_id, :uuid
+      add :machine_id, references(:machine)
       add :weight, :decimal
-      add :repitition_started_at, :date
-      add :repitition_ended_at, :date
+      add :repitition_started_at, :naive_datetime
+      add :repitition_ended_at, :naive_datetime
 
       timestamps()
     end
+
+    create index(:repitition, [:machine_id])
   end
 end

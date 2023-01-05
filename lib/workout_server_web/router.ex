@@ -24,6 +24,7 @@ defmodule WorkoutServerWeb.Router do
     pipe_through :api
 
     resources "/workouts/repititions", RepititionController
+    resources "/workouts/machines", MachineController
   end
 
   # Other scopes may use custom stacks.

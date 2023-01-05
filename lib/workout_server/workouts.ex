@@ -19,6 +19,7 @@ defmodule WorkoutServer.Workouts do
   """
   def list_repitition do
     Repo.all(Repitition)
+    |> Repo.preload(:machine)
   end
 
   @doc """
@@ -35,7 +36,10 @@ defmodule WorkoutServer.Workouts do
       ** (Ecto.NoResultsError)
 
   """
-  def get_repitition!(id), do: Repo.get!(Repitition, id)
+  def get_repitition!(id), do:
+    Repitition
+    |> Repo.get!(id)
+    |> Repo.preload(:machine)
 
   @doc """
   Creates a repitition.
@@ -51,6 +55,7 @@ defmodule WorkoutServer.Workouts do
   """
   def create_repitition(attrs \\ %{}) do
     %Repitition{}
+    |> Repo.preload(:machine)
     |> Repitition.changeset(attrs)
     |> Repo.insert()
   end
@@ -69,6 +74,7 @@ defmodule WorkoutServer.Workouts do
   """
   def update_repitition(%Repitition{} = repitition, attrs) do
     repitition
+    |> Repo.preload(:machine)
     |> Repitition.changeset(attrs)
     |> Repo.update()
   end

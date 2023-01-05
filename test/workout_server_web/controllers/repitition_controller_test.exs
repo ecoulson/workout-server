@@ -6,18 +6,16 @@ defmodule WorkoutServerWeb.RepititionControllerTest do
   alias WorkoutServer.Workouts.Repitition
 
   @create_attrs %{
-    machine_id: "7488a646-e31f-11e4-aace-600308960662",
-    repitition_ended_at: ~D[2023-01-03],
-    repitition_started_at: ~D[2023-01-03],
+    repitition_ended_at: ~N[2023-01-02 00:02:00.00],
+    repitition_started_at: ~N[2023-01-02 00:01:00.00],
     weight: "120.5"
   }
   @update_attrs %{
-    machine_id: "7488a646-e31f-11e4-aace-600308960668",
-    repitition_ended_at: ~D[2023-01-04],
-    repitition_started_at: ~D[2023-01-04],
+    repitition_ended_at: ~N[2023-01-04 00:02:00.00],
+    repitition_started_at: ~N[2023-01-04 00:01:00.00],
     weight: "456.7"
   }
-  @invalid_attrs %{machine_id: nil, repitition_ended_at: nil, repitition_started_at: nil, weight: nil}
+  @invalid_attrs %{repitition_ended_at: nil, repitition_started_at: nil, weight: nil}
 
   setup %{conn: conn} do
     {:ok, conn: put_req_header(conn, "accept", "application/json")}
@@ -39,9 +37,8 @@ defmodule WorkoutServerWeb.RepititionControllerTest do
 
       assert %{
                "id" => ^id,
-               "machine_id" => "7488a646-e31f-11e4-aace-600308960662",
-               "repitition_ended_at" => "2023-01-03",
-               "repitition_started_at" => "2023-01-03",
+               "repitition_ended_at" => "2023-01-02T00:02:00",
+               "repitition_started_at" => "2023-01-02T00:01:00",
                "weight" => "120.5"
              } = json_response(conn, 200)["data"]
     end
@@ -63,9 +60,8 @@ defmodule WorkoutServerWeb.RepititionControllerTest do
 
       assert %{
                "id" => ^id,
-               "machine_id" => "7488a646-e31f-11e4-aace-600308960668",
-               "repitition_ended_at" => "2023-01-04",
-               "repitition_started_at" => "2023-01-04",
+               "repitition_ended_at" => "2023-01-04T00:02:00",
+               "repitition_started_at" => "2023-01-04T00:01:00",
                "weight" => "456.7"
              } = json_response(conn, 200)["data"]
     end
