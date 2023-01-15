@@ -10,7 +10,7 @@ defmodule WorkoutServerWeb.RepititionSocket do
   # Uncomment the following line to define a "room:*" topic
   # pointing to the `WorkoutServerWeb.RoomChannel`:
   #
-  channel "workout:*", WorkoutServerWeb.WorkoutChannel
+  channel "machine:*", WorkoutServerWeb.MachineChannel
   #
   # To create a channel file, use the mix task:
   #
